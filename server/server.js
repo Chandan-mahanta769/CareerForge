@@ -12,13 +12,13 @@ import courseRoutes from "./routes/courses.js";
 
 dotenv.config();
 
-const CLIENT_URL = process.env.CLIENT_URL || "http://localhost:5173";
+const CLIENT_URL = process.env.CLIENT_URL || "https://career-forge-new.vercel.app";
 const PORT = process.env.PORT || 5000;
 
 const app = express();
 
-// app.use(cors({ origin: CLIENT_URL, credentials: true }));
-app.use(cors());
+app.use(cors({ origin: CLIENT_URL, credentials: true }));
+// app.use(cors());
 app.use(express.json());
 app.use(passport.initialize());
 
