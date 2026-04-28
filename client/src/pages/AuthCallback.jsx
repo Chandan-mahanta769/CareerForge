@@ -2,12 +2,12 @@ import { useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
 export default function AuthCallback() {
-  const [params] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const navigate = useNavigate();
 
   useEffect(() => {
-    const token = params.get("token");
-    const error = params.get("error");
+    const token = searchParams.get("token");
+    const error = searchParams.get("error");
 
     if (token) {
       localStorage.setItem("token", token);
@@ -15,11 +15,14 @@ export default function AuthCallback() {
     } else {
       navigate("/login?error=" + (error || "unknown"));
     }
-  }, [navigate, params]);
+  }, []);
 
   return (
-    <div className="min-h-screen dark:bg-[#0F0F1A] bg-gray-100 flex items-center justify-center">
-      <p className="dark:text-white/40 text-gray-400 text-sm">Signing you in...</p>
+    <div className="flex h-screen items-center justify-center bg-[#0F0F1A]">
+      <div className="text-center">
+        <div className="w-10 h-10 rounded-full border-2 border-white/20 border-t-white/60 animate-spin mx-auto mb-3" />
+        <p className="text-white/40 text-sm">Signing you in...</p>
+      </div>
     </div>
   );
 }

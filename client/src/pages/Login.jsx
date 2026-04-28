@@ -29,12 +29,13 @@ export default function LoginPage() {
     setLoading(false);
   };
 
-  const apiBase =
-  (import.meta.env.VITE_API_BASE || import.meta.env.VITE_API_URL || "")
-    .replace(/\/$/, "") || "http://localhost:5000";
+  // const apiBase =
+  // (import.meta.env.VITE_API_BASE || import.meta.env.VITE_API_URL || "")
+  //   .replace(/\/$/, "") || "http://localhost:5000";
 
 const googleLogin = () => {
-  window.location.href = `${apiBase}/api/auth/google`;
+const SERVER = import.meta.env.VITE_SERVER_URL || "http://localhost:5000";
+window.location.href = `${SERVER}/api/auth/google`;
 };
 
   return (
