@@ -34,8 +34,9 @@ export default function LoginPage() {
   //   .replace(/\/$/, "") || "http://localhost:5000";
 
 const googleLogin = () => {
-const SERVER = import.meta.env.VITE_SERVER_URL || "http://localhost:5000";
-window.location.href = `${SERVER}/api/auth/google`;
+  const SERVER = import.meta.env.VITE_SERVER_URL || "http://localhost:5000";
+  const redirectOrigin = typeof window !== "undefined" ? window.location.origin : "http://localhost:5173";
+  window.location.href = `${SERVER}/api/auth/google?redirectUrl=${encodeURIComponent(redirectOrigin)}`;
 };
 
   return (

@@ -1,7 +1,10 @@
 const apiBase = import.meta.env.VITE_API_BASE || import.meta.env.VITE_API_URL;
-const BASE = apiBase
+const resolvedApiBase = apiBase
   ? apiBase.replace(/\/$/, "") + (import.meta.env.VITE_API_BASE ? "" : "/api")
   : "http://localhost:5000/api";
+const BASE = typeof window !== "undefined" && window.location.hostname === "localhost"
+  ? "http://localhost:5000/api"
+  : resolvedApiBase;
 
 const getToken = () => localStorage.getItem("token");
 

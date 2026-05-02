@@ -9,4 +9,5 @@ export const glassCardStyle = (accent = "#6C3EF4", active = false) => ({
   boxShadow: active ? `0 12px 38px ${accent}20` : "0 10px 30px rgba(2,8,23,0.2)",
   backdropFilter: "blur(14px)",
   WebkitBackdropFilter: "blur(14px)",
+  transition: "background 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease",
 });

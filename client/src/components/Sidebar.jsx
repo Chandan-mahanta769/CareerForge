@@ -20,9 +20,8 @@ export default function Sidebar() {
 
   return (
     <aside
-      className="h-full flex flex-col border-r transition-all duration-300"
+      className="h-full flex flex-col border-r transition-all duration-300 w-20 md:w-62"
       style={{
-        width: collapsed ? "78px" : "248px",
         borderColor: "rgba(255,255,255,0.1)",
         background: "linear-gradient(180deg, rgba(17,17,30,0.95), rgba(10,10,22,0.92))",
         backdropFilter: "blur(14px)",
@@ -31,7 +30,7 @@ export default function Sidebar() {
     >
       <button
         onClick={() => setCollapsed(!collapsed)}
-        className="h-14 px-4 flex items-center justify-between border-b"
+        className="h-14 px-4 flex items-center justify-between border-b hidden md:flex"
         style={{ borderColor: "rgba(255,255,255,0.08)" }}
       >
         <span className="ml-auto text-white/60">
@@ -63,7 +62,7 @@ export default function Sidebar() {
               >
                 <Icon size={16} />
               </span>
-              {!collapsed && <span className="truncate">{item.label}</span>}
+              <span className="truncate hidden md:inline">{item.label}</span>
             </button>
           );
         })}
